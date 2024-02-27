@@ -8,3 +8,9 @@ installer le composer json et initialisation de twig  : composer require "twig/t
 
 ajout du gitignore pour le repo github
 
+ajout du dossier template + routeur index.php
+
+actuellement sur la branche inprogress
+
+
+
