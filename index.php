@@ -3,10 +3,13 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/src/Controller/HomeController.php';
+require_once __DIR__ . '/src/Controller/RegisterController.php';
 
 
 $routes = [
     '' => ['controller' => 'App\\Controller\\HomeController'],
+    'register' => ['controller' => 'App\\Controller\\RegisterController'],
+
 ];
 $request = $_SERVER['REQUEST_URI'];
 $request2 = isset($_GET['action']) ? $_GET['action'] : "";
