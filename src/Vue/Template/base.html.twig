@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://kit.fontawesome.com/29634ca628.js" crossorigin="anonymous"></script>
 		{# <meta http-equiv="refresh" content="3"> #}
 		<title>
 			{% block title %}Ca roule ma poule
@@ -17,16 +18,16 @@
 	</head>
 	<body>
 
-		<header>
+		<!-- <header>
 			<nav class="ccsticky-nav">
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="/register">Register</a></li>
 				</ul>
 			</nav>
-		</header>
+		</header> -->
 		
-		{# {% include 'header/header.twig' %} #}
+		{% include 'Header/header.html.twig' %}
 		{% block header %} {% endblock %}
 		{% block body %} {% endblock %}
 	</body>

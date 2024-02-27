@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Example</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #C9AE75;
+        }
+
+        .navbar {
+            background-color: #862A1B;
+            /* Dark red background */
+            overflow: hidden;
+            padding: 10px 20px;
+            /* Some padding */
+            border-radius: 0 0 50px 50px;
+        }
+
+        .navbar a {
+            float: left;
+            /* Float links to the left */
+            color: #C9AE75;
+            text-align: center;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            /* Increase font size */
+            line-height: 25px;
+            /* Center text vertically */
+        }
+
+        .navbar-logo {
+            background-image: url('path-to-your-logo.png');
+            /* Replace with your image path */
+            background-size: cover;
+            height: 50px;
+            /* Set the size of the logo */
+            width: 50px;
+            border-radius: 50%;
+        }
+
+        .navbar-right {
+            float: right;
+            /* Float the sign in and out to the right */
+        }
+
+        .navbar a:hover {
+            color: black;
+            border: #862A1B;
+        }
+
+        /* Clear floats after the columns */
+        .navbar:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="navbar-logo"></div>
+        <a href="/">Home</a>
+        <a href="#play">Play</a>
+        <a href="/register">Register</a>
+        <div class="navbar-right">
+            <a href="/login"><i class="fa-solid fa-user fa-3x"></i></a>
+            <a href="/logout"><i class="fa-solid fa-right-to-bracket fa-3x"></i></a>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
