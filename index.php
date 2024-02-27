@@ -2,7 +2,7 @@
 
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/Controller/HomeController.php';
+require_once __DIR__ . '/src/Controller/HomeController.php';
 
 
 $routes = [

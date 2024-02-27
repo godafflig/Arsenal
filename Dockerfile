@@ -1,13 +1,18 @@
-FROM php:8.0-fpm
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+FROM php:8.2-apache
 
-WORKDIR /app
+# Install extensions
+RUN docker-php-ext-install pdo pdo_mysql mysqli
 
-# Installation des dépendances PHP (si nécessaire)
-# RUN docker-php-ext-install pdo pdo_mysql
+# Enable Apache mod_rewrite
 
-COPY . /app
+# Adjust Apache to allow .htaccess files and enable overrides
+RUN echo '<Directory "/var/www/html">' > /etc/apache2/conf-available/override.conf \
+    && echo '    AllowOverride All' >> /etc/apache2/conf-available/override.conf \
+    && echo '</Directory>' >> /etc/apache2/conf-available/override.conf \
+    && a2enconf override
 
-RUN composer install --no-interaction
+# Permissions
+RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
+RUN a2enmod rewrite
 
-CMD ["php-fpm"]
+RUN service apache2 restart

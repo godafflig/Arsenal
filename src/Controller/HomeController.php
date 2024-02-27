@@ -17,7 +17,8 @@ class HomeController
             $this->loader = new FilesystemLoader(__DIR__ . '/../Vue/Template');
             $this->twig = new Environment($this->loader);
 
-            $this->twig->display('Home/home.html.twig');
+            $this->twig->display('Home/index.html.twig');
+            echo 'test';
         }
     }
 }
