@@ -8,8 +8,10 @@ class RegisterModel
     private $titleId = '697EF';
 
 
-    public function register($email, $displayname, $password ,$username)
+    public function register($email, $displayname, $password, $username)
     {
+        session_start();
+
         $data = [
 
             'Email' => $email,

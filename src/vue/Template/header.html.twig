@@ -8,11 +8,13 @@
     <!-- Assurez-vous d'inclure le CSS pour FontAwesome si vous utilisez des icônes fa -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <div class="navbar">
         <div class="navbar-logo"></div>
         <a href="/">Home</a>
         {% if isConnected %}
+
         <a href="#play">Play</a>
         <div class="navbar-right">
             <!-- Le lien de déconnexion s'affiche seulement quand l'utilisateur est connecté -->
@@ -22,7 +24,9 @@
         <!-- Les liens Register et Login s'affichent seulement si l'utilisateur n'est pas connecté -->
         <a href="/register">Register</a>
         <a href="/login">Login</a>
+        <a href="/logout"><i class="fa-solid fa-right-to-bracket fa-3x"></i> Logout</a>
         {% endif %}
+
     </div>
 
 </body>

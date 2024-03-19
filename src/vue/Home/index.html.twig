@@ -1,11 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 <div>
-    <h1> home </h1>
-    {% if isConnected %}
-    <h2>player is connected</h2>
-    {% else %}
-    <h2>player is disconnected</h2>
-    {% endif %}
+    <h1>home</h1>
+    isConnected: {{ isConnected ? 'true' : 'false' }}
 </div>
 {% endblock %}

@@ -1,41 +1,36 @@
 <?php
+
 namespace App\Controller;
 
-
 require 'vendor/autoload.php';
-require_once __DIR__ . '/../Modele/LoginModel.php';
+require_once __DIR__ . '/../modele/RegisterModel.php';
 
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
 
-class LoginController
+class RegisterController
 {
     protected $twig;
-    private $loader;
-    private $LoginModel;
 
+    private $registerModel;
 
-    public function __construct()
+    public function __construct($_twig)
     {
         //----------------------------logique twig -----------------------------------
-        $this->loader = new FilesystemLoader(__DIR__ . '/../vue');
-        $this->twig = new Environment($this->loader);
-        $this->LoginModel = new LoginModel();
-
+        $this->twig = $_twig;
+        $this->registerModel = new RegisterModel();
         $context = [];
-
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-            $username = $_POST['username']  ?? '';
+            // Récupération des données du formulaire
+            $username = $_POST['username'] ?? ''; // Utilisation de l'opérateur de coalescence nulle
+            $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
+            $displayname = $_POST['displayname'] ?? '';
 
 
-
-            $response = $this->LoginModel->login($username, $password);
-
+            // Vous pouvez ajouter une validation supplémentaire ici
+            // Envoi de la demande d'enregistrement
+            $response = $this->registerModel->register($email, $displayname, $password, $username);
+            // var_dump($response);
             if ($response->code == 200) {
-                $_SESSION['username'] = $username;
-                echo 'le joueur est connecte ';
                 $context = ['message' => "success", 'type' => "success"];
             } else if ($response->code == 400 && isset($response->errorDetails)) { {
                     $errors = [];
@@ -50,7 +45,6 @@ class LoginController
                 $context = ['message' => $response->errorMessage, 'type' => "error"];
             }
         }
-        $this->twig->display('Login/login.html.twig', $context);
-
+        $this->twig->display('Register/register.html.twig', $context);
     }
 }
