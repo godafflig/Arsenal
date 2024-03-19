@@ -19,6 +19,7 @@ if (!empty($_SESSION['sessionTicket'])) {
 }
 $twig->addGlobal('isConnected', $isConnected);
 
+
 $routes = [
     '' => ['controller' => 'App\\Controller\\HomeController'],
     'register' => ['controller' => 'App\\Controller\\RegisterController'],
