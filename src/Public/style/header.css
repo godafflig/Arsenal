@@ -16,7 +16,7 @@ body {
     float: left;
     /* Float links to the left */
     color: #C9AE75;
-    text-align: center;
+    text-align: start;
     padding: 12px;
     text-decoration: none;
     font-size: 18px;
@@ -26,7 +26,7 @@ body {
 }
 
 .navbar-logo {
-    background-image: url('path-to-your-logo.png');
+    background-image: url('/src/Public/img/logo.png');
     /* Replace with your image path */
     background-size: cover;
     height: 50px;
@@ -37,6 +37,7 @@ body {
 
 .navbar-right {
     float: right;
+    text-align: center;
     /* Float the sign in and out to the right */
 }
 
@@ -51,3 +52,9 @@ body {
     display: table;
     clear: both;
 }
+
+.background h2{
+
+    
+}
+

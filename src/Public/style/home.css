@@ -45,3 +45,34 @@ button:hover {
     background-color: #0056b3;
 
 }
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.texte,
+.img {
+    flex: 1;
+    padding: 20px;
+}
+
+.background {
+    position: relative;
+    height: 70vh; /* Hauteur de la page */
+    background: url('/src/Public/img/Illu\ arsenal.jpg') no-repeat center center; /* Image de fond */
+    background-size: cover; /* Couvrir toute la div */
+}
+
+.background::before {
+    content: '';
+    background-image: url('/src/Public/img/Illu\ arsenal.jpg');
+    opacity: 0.5;
+    z-index: 0;
+}
+
+h2 {
+
+
+}
