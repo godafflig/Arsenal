@@ -16,5 +16,9 @@ actuellement sur la branche inprogress
 ajout des fonctionnalite d'inscription reoute de register , 
 
 push sur la branch main 
+a faire pour la provhaine fois 
+branch dev pour finir le front de la page 
+finir les route pour logout et prfil
+finir la pge home avec le front de figma
 
 
