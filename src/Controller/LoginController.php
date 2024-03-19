@@ -1,6 +1,6 @@
 <?php
-
 namespace App\Controller;
+
 
 require 'vendor/autoload.php';
 require_once __DIR__ . '/../Modele/LoginModel.php';
@@ -18,7 +18,7 @@ class LoginController
     public function __construct()
     {
         //----------------------------logique twig -----------------------------------
-        $this->loader = new FilesystemLoader(__DIR__ . '/../Vue/Template');
+        $this->loader = new FilesystemLoader(__DIR__ . '/../vue');
         $this->twig = new Environment($this->loader);
         $this->LoginModel = new LoginModel();
 
@@ -50,6 +50,7 @@ class LoginController
                 $context = ['message' => $response->errorMessage, 'type' => "error"];
             }
         }
-        $this->twig->display('Login/login.html.twig');
+        $this->twig->display('Login/login.html.twig', $context);
+
     }
 }

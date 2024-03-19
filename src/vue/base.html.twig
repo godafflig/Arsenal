@@ -5,23 +5,16 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://kit.fontawesome.com/29634ca628.js" crossorigin="anonymous"></script>
-	{#
-	<meta http-equiv="refresh" content="3"> #}
 	<title>
 		{% block title %}Arsenal
 		{% endblock %}
 	</title>
-
 	{% block stylesheet %}{% endblock %}
-	<link rel="stylesheet" href="/Public/style/home.css" />
-	<link href="/Public/style/inscription.css" rel="stylesheet" />
-	<link href="/Public/style/header.css" rel="stylesheet" />
-
-
+	<link rel="stylesheet" href="/src/Public/style/home.css" />
+	<link href="/src/Public/style/header.css" rel="stylesheet" />
 </head>
-
 <body>
-	{% include 'Header/header.html.twig' %}
+	{% include 'Template/header.html.twig' %}
 	{% block header %} {% endblock %}
 	{% block body %} {% endblock %}
 </body>

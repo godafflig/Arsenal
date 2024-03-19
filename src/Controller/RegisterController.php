@@ -20,7 +20,7 @@ class RegisterController
     public function __construct()
     {
         //----------------------------logique twig -----------------------------------
-        $this->loader = new FilesystemLoader(__DIR__ . '/../Vue/Template');
+        $this->loader = new FilesystemLoader(__DIR__ . '/../vue');
         $this->twig = new Environment($this->loader);
         $this->registerModel = new RegisterModel();
 
