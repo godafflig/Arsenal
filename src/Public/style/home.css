@@ -1,8 +1,9 @@
 body {
 
     font-family: Arial, sans-serif;
-
     text-align: center;
+    font-family: 'Expletus Sans', sans-serif;
+    background-color: #ccc;
 
 }
 
@@ -15,6 +16,10 @@ form {
     border-radius: 5px;
 }
 
+.background h1 {
+    font-size: 100px;
+    color: #862A1B;
+}
 
 
 input {
@@ -23,19 +28,12 @@ input {
 }
 
 
-
 button {
-
     background-color: #007BFF;
-
     color: #fff;
-
     border: none;
-
     padding: 10px 20px;
-
     cursor: pointer;
-
 }
 
 
@@ -50,6 +48,7 @@ button:hover {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    background-color: #ccc;
 }
 
 .texte,
@@ -60,9 +59,12 @@ button:hover {
 
 .background {
     position: relative;
-    height: 70vh; /* Hauteur de la page */
-    background: url('/src/Public/img/Illu\ arsenal.jpg') no-repeat center center; /* Image de fond */
-    background-size: cover; /* Couvrir toute la div */
+    height: 70vh;
+    /* Hauteur de la page */
+    background: url('/src/Public/img/Illu\ arsenal.jpg') no-repeat center center;
+    /* Image de fond */
+    background-size: cover;
+    /* Couvrir toute la div */
 }
 
 .background::before {
@@ -72,7 +74,21 @@ button:hover {
     z-index: 0;
 }
 
-h2 {
+.texte-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    /* Ou la hauteur désirée */
+    line-height: normal;
+    width: 100vh;
+    /* Attention, vh est une unité basée sur la hauteur de l'écran, peut-être vouliez-vous utiliser % ou px ici pour la largeur */
+    border: 1px solid black;
+    border-radius: 50px;
+}
 
-
+.texte-home p {
+    padding: 20px;
+    color: black;
 }

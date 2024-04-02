@@ -1,43 +1,68 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-<div>
-    {% if _context.message %}
-    <h1 class="{{ _context.type == 'success' ? 'success' : 'error' }}">
-        {{ _context.message }}
-    </h1>
-    {% endif %}
-    {% if errors is defined and errors|length > 0 %}
-    <div class="errors">
-        <ul>
-            {% for error in errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
-        </ul>
+<!-- <head>
+    <link href="/src/Public/style/register.css" rel="stylesheet" />
+</head> -->
+<h1>Arsenalgame.fr</h1>
+
+<div class="colonnes">
+    <div class="colonne formulaire">
+        <div class="left-column">
+            <!-- Contenu de la colonne gauche si nécessaire -->
+        </div>
+        <div class="right-column">
+            {% if _context.message %}
+            <h1 class="{{ _context.type == 'success' ? 'success' : 'error' }}">
+                {{ _context.message }}
+            </h1>
+            {% endif %}
+        </div>
+
+        {% if errors is defined and errors|length > 0 %}
+        <div class="errors">
+            <ul>
+                {% for error in errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <form class="register" action="" method="post">
+            <label for="email">email</label>
+            <input name="email" id="email" type="email">
+
+            <label for="password">password</label>
+            <input name="password" minlength="6" maxlength="100" id="password" type="password">
+
+            <label for="username">Username</label>
+            <input name="username" id="username" type="text">
+
+            <label for="displayname">Display name</label>
+            <input name="displayname" id="displayname" type="text">
+
+            <button type="submit">Register</button>
+        </form>
     </div>
-    {% endif %}
 
 
-    <h1>register</h1>
-    <form action="" method="post">
-
-        <label for="email">email</label>
-        <input name="email" id="email" type="email">
-
-        <label for="password">password</label>
-        <input name="password" minlength="6" maxlength="100" id="password" type="password">
-
-        <label for="username">Username</label>
-        <input name="username" id="username" type="text">
-
-
-        <label for="displayname">Display name</label>
-        <input name="displayname" id="displayname" type="text">
-
-        <button type="submit">Register</button>
-    </form>
-
+    <div class="footer-register">
+        <!-- À droite le logo d'Arsenal -->
+        <div class="colonnes logo">
+            <!-- Contenu du logo si nécessaire -->
+            <img src="src/Public/img/logo.png" alt="logo du jeux arsenal">
+        </div>
+        <div class="texte">
+            Pourquoi crée un compte arsenal :
+            <li> 1 Accès à du contenu exclusif.</li>
+            <li> 2 Sauvegarde de la progression.</li>
+            <li> 3 Interaction sociale et compétitions.</li>
+        </div>
+    </div>
 </div>
+
+
 
 
 
