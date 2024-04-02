@@ -10,6 +10,13 @@ body {
     overflow: hidden;
     padding: 10px 20px;
     /* Some padding */
+    background-color: #862A1B;
+    overflow: hidden;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
 }
 
 .navbar a {
@@ -38,7 +45,7 @@ body {
 .navbar-right {
     float: right;
     text-align: center;
-    /* Float the sign in and out to the right */
+    margin-right: -30vh;
 }
 
 .navbar a:hover {
@@ -53,8 +60,9 @@ body {
     clear: both;
 }
 
-.background h2{
+.background h2 {}
 
-    
+#iconprofil{
+    width: 7vh;
+    color: #C9AE75;
 }
-
