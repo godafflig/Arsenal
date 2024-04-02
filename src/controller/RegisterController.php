@@ -4,8 +4,6 @@ namespace App\Controller;
 
 require 'vendor/autoload.php';
 require_once __DIR__ . '/../modele/RegisterModel.php';
-
-
 class RegisterController
 {
     protected $twig;
@@ -24,10 +22,6 @@ class RegisterController
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
             $displayname = $_POST['displayname'] ?? '';
-
-
-            // Vous pouvez ajouter une validation supplémentaire ici
-            // Envoi de la demande d'enregistrement
             $response = $this->registerModel->register($email, $displayname, $password, $username);
             // var_dump($response);
             if ($response->code == 200) {

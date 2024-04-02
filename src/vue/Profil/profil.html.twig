@@ -6,8 +6,12 @@
     <link href="/src/Public/style/profil.css" rel="stylesheet" />
 </head>
 
-<div>
-    
-</div>
+<h1>Profil de l'utilisateur</h1>
+{% if isConnected %}
+<p>Nom d'affichage : {{ displayName|e }}</p>
+<p>Email : {{ email|e }}</p>
+{% else %}
+<p>L'utilisateur n'est pas connecté.</p>
+{% endif %}
 
 {% endblock %}

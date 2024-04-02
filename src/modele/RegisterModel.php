@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 class RegisterModel
 {
     private $titleId = '697EF';
