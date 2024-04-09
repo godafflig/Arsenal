@@ -1,65 +1,59 @@
 <?php
+
 namespace App\Controller;
 
 require 'vendor/autoload.php';
+require_once __DIR__ . '/../modele/LoginModel.php';
 
-use Twig\Environment;
-use Twig\Loader\FilesystemLoader;
 
-class ProfileController
+
+class LoginController
 {
     protected $twig;
+    private $loginModel;
 
     public function __construct($_twig)
     {
         $this->twig = $_twig;
+        $this->loginModel = new LoginModel();
     }
 
-    public function showProfile()
+    public function showLoginForm()
     {
-        session_start(); // Assurez-vous que la session est démarrée
+        // Afficher le formulaire de connexion
+        $this->twig->display('Login/login.html.twig');
+    }
 
-        // Vérifiez si l'utilisateur est connecté
-        if (isset($_SESSION['sessionTicket'])) {
-            $sessionTicket = $_SESSION['sessionTicket'];
+    public function processLogin()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = $_POST['username'] ?? '';
+            $password = $_POST['password'] ?? '';
 
-            // Effectuer la requête à PlayFab pour obtenir les informations de profil
-            $curl = curl_init();
+            $response = $this->loginModel->login($username, $password);
 
-            curl_setopt_array($curl, [
-                CURLOPT_URL => "https://697EF.playfabapi.com/Client/GetAccountInfo",
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_POST => true,
-                CURLOPT_POSTFIELDS => "{}", // Corps de la requête. Ajustez selon les besoins.
-                CURLOPT_HTTPHEADER => [
-                    "Content-Type: application/json",
-                    "X-Authorization: $sessionTicket",
-                ],
-            ]);
+            if (isset($response->code) && $response->code === 200 && isset($response->data->SessionTicket)) {
 
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
+                $_SESSION['sessionTicket'] = $response->data->SessionTicket;
+                $_SESSION['username'] = $username;
 
-            curl_close($curl);
+                // Rediriger l'utilisateur vers la page d'accueil
+                if (headers_sent()) {
+                    die("Redirect failed. Please click on this link: <a href='/login'>");
+                } else {
+                    exit(header("Location: /"));
+                }
 
-            if ($err) {
-                $context = ['error' => "Erreur lors de la récupération des informations de profil: $err"];
+                // header('Location:/');
+                // exit(); // Arrêter l'exécution du script après la redirection
             } else {
-                // Convertir la réponse en un tableau associatif
-                $data = json_decode($response, true);
-
-                // Ici, ajustez les clés selon la structure de la réponse de PlayFab
-                $context = [
-                    'username' => $_SESSION['username'] ?? 'Invité',
-                    'profile' => $data['data']['AccountInfo'] ?? [],
-                ];
+                // Afficher un message d'erreur si la connexion a échoué
+                $context = ['error' => 'Identifiants incorrects. Veuillez réessayer.'];
+                $this->twig->display('Login/login.html.twig', $context);
             }
         } else {
-            // Utilisateur non connecté, rediriger vers le formulaire de connexion
-            header("Location: /login");
-            exit;
+            // Si la méthode HTTP n'est pas POST, rediriger l'utilisateur vers le formulaire de connexion
+            $this->showLoginForm();
         }
-
-        $this->twig->display('Profile/profile.html.twig', $context);
     }
 }
