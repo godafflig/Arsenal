@@ -62,8 +62,8 @@ form {
 
     background-color: #171614;
     border: 1px solid grey;
-    width: 60vh;
-    height: 10vh;
+    width: 40vh;
+    height: 4vh;
     /* Vous pouvez spécifier une largeur ou un ratio de flex pour cette colonne si nécessaire */
 }
 

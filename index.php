@@ -6,7 +6,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/src/controller/HomeController.php';
 require_once __DIR__ . '/src/controller/RegisterController.php';
 require_once __DIR__ . '/src/controller/DeconnectionController.php';
-require_once __DIR__ . '/src/controller/ProfilController.php';
+require_once __DIR__ . '/src/controller/ProfileController.php';
 
 
 
@@ -28,7 +28,7 @@ $routes = [
     'login' => ['controller' => 'App\\controller\\LoginController', 'method' => 'showLoginForm'], // Afficher le formulaire de connexion
     'processLogin' => ['controller' => 'App\\controller\\LoginController', 'method' => 'processLogin'], // Traiter la connexion
     'logout' => ['controller' => 'App\\controller\\DeconnectionController', 'method' => 'logout'],
-    'profil' => ['controller' => 'App\\controller\\ProfilController', 'method' => 'profil'],
+    'profil' => ['controller' => 'App\\controller\\ProfileController','method' => 'showProfile'],
 ];
 
 $request = $_SERVER['REQUEST_URI'];

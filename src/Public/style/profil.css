@@ -1,0 +1,8 @@
+p {
+    padding: 5vh;
+}
+
+.container-profil {
+    column-width: 15em;
+    column-rule: 1px solid rgb(75, 70, 74);
+}

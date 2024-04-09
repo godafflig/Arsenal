@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<head>
+    <link href="/src/Public/style/profil.css" rel="stylesheet" />
+</head>
+
+<h1>Profil de l'utilisateur</h1>
+{% if isConnected %}
+<div class="container-profil">
+    <p>PlayFab ID : {{ playFabId }}</p>
+    <p>Nom d'utilisateur : {{ username }}</p>
+    <p>Nom d'affichage : {{ displayName }}</p>
+    <p>Compte créé le : {{ created }}</p>
+    <p>Dernière connexion : {{ lastLogin }}</p>
+    <p>Première connexion : {{ firstLogin }}</p>
+    <p>Banni : {{ isBanned ? 'Oui' : 'Non' }}</p>
+    <p>Email : {{ email }}</p>
+    {% else %}
+    <p>L'utilisateur n'est pas connecté.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
