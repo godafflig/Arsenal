@@ -55,7 +55,14 @@ button:hover {
 .img {
     flex: 1;
     padding: 20px;
+    
 }
+img {
+    
+    max-width: 500px;
+    max-height: 500px;
+}
+
 
 .background {
     position: relative;
@@ -91,4 +98,6 @@ button:hover {
 .texte-home p {
     padding: 20px;
     color: black;
+    size: 10px;
+    font-size: x-large;
 }
